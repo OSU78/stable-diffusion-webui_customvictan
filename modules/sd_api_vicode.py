@@ -53,6 +53,8 @@ def call_img2img_api(**payload):
     for index, image in enumerate(response.get('images')):
         save_path = os.path.join(out_dir_i2i, f'img2img-{timestamp()}-{index}.png')
         decode_and_save_base64(image, save_path)
+    
+    print(image)
 
 
 
