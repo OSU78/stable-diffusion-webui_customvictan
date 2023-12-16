@@ -41,8 +41,9 @@ def call_api(api_endpoint, **payload):
 import argparse
 import json
 def call_txt2img_api(**kwargs):
-    print("Arguments reçus:", kwargs)
+    
     response = call_api('sdapi/v1/txt2img', **kwargs)
+    print(response.get('images'))
     for index, image in enumerate(response.get('images')):
         save_path = os.path.join(out_dir_t2i, f'txt2img-{timestamp()}-{index}.png')
         decode_and_save_base64(image, save_path)
