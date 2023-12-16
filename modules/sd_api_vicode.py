@@ -5,7 +5,7 @@ import json
 import time
 import os
 
-webui_server_url = 'http://127.0.0.1:8000'
+webui_server_url = 'http://127.0.0.1:7861'
 
 out_dir = 'api_out'
 out_dir_t2i = os.path.join(out_dir, 'txt2img')
