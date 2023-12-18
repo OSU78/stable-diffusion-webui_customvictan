@@ -28,6 +28,8 @@ parser.add_argument("--hr_scale", type=float, default=1.45, help="High resolutio
 parser.add_argument("--hr_upscaler", type=str, default='ESRGAN_4x', help="High resolution upscaler")
 parser.add_argument("--hr_second_pass_steps", type=int, default=20, help="High resolution second pass steps")
 
+parser.add_argument("--override_sd_model_checkpoint", type=str, default="v1-5-pruned-emaonly", help="overwrite")
+
 
 
 
