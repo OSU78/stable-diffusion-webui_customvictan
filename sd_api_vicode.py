@@ -73,7 +73,7 @@ def gen_img2(txt2imgreq):
     send_images = True
     # Exécution du processus de génération d'image
     with closing(StableDiffusionProcessingTxt2Img(sd_model=shared.sd_model, **args)) as p:
-
+        p.outpath_samples = os.getcwd()
         try:
             processed = process_images(p)
         finally:
@@ -129,7 +129,11 @@ def main():
     args = parser.parse_args()
     args_dict = vars(args)
     #print(args_dict)
-
+    
+    from modules import shared_init
+    shared_init.initialize()
+    startup_timer.record("initialize shared")
+    
     # Extraire uniquement les clés spécifiques
     keys_to_extract = ['prompt', 'negative_prompt', 'styles', 'seed', 'subseed', 
                        'subseed_strength', 'seed_resize_from_h', 'seed_resize_from_w', 
