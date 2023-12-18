@@ -69,6 +69,7 @@ class Txt2ImgRequest:
 def gen_img2(txt2imgreq):
     # Initialisation et validation des paramètres
     args = vars(txt2imgreq)
+    finished = False
 
     send_images = True
     # Exécution du processus de génération d'image
@@ -77,13 +78,13 @@ def gen_img2(txt2imgreq):
         try:
             processed = process_images(p)
         finally:
-            print("OK nice")
+            finished = True
 
     # Conversion des images en base64 si nécessaire
-    print(processed.images)
-    print("------------")
+    #print(processed.images)
+    #print("------------")
     b64images = list(map(encode_pil_to_base64, processed.images)) if send_images else []
-    print(b64images)
+    
     return b64images
 
 
@@ -128,7 +129,8 @@ def main():
     gen_image_settings = {'prompt': 'realistic oil painting, portrait of a young man, looking away from viewer, full body, red hair, detailed face, hard brush, sexy clothings, in a dark forest, night, barely lit ((head shoot, neck , face:1.4))', 'negative_prompt': 'bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, fused thigh, extra thigh, worst thigh, missing fingers, extra fingers, ugly fingers, long fingers, horn, realistic photo, extra eyes, huge eyes, 2girl, amputation, disconnected limbs,Duplicate , two people,text ,signature,watermark', 'styles': None, 'seed': -1, 'subseed': -1, 'subseed_strength': 0, 'seed_resize_from_h': -1, 'seed_resize_from_w': -1, 'sampler_name': 'DPM++ 2M Karras', 'batch_size': 1, 'n_iter': 1, 'steps': 25, 'cfg_scale': 7.5, 'width': 512, 'height': 768, 'restore_faces': None, 'tiling': None, 'do_not_save_samples': True, 'do_not_save_grid': True, 'eta': None, 'denoising_strength': 0.2, 's_min_uncond': None, 's_churn': None, 's_tmax': None, 's_tmin': None, 's_noise': None, 'override_settings': {'sd_model_checkpoint': 'Dautless'}, 'override_settings_restore_afterwards': True, 'refiner_checkpoint': None, 'refiner_switch_at': None, 'disable_extra_networks': False, 'comments': None, 'enable_hr': True, 'firstphase_width': 0, 'firstphase_height': 0, 'hr_scale': 1.45, 'hr_upscaler': 'ESRGAN_4x', 'hr_second_pass_steps': 20, 'hr_resize_x': 0, 'hr_resize_y': 0, 'hr_checkpoint_name': 'Dautless', 'hr_sampler_name': 'DPM++ 2M Karras', 'hr_prompt': '', 'hr_negative_prompt': '', 'sampler_index': None}
 
     # Call your gen_img2 function with these settings
-    gen_img2(Txt2ImgRequest(**gen_image_settings))
+    image_result = gen_img2(Txt2ImgRequest(**gen_image_settings))
+    print (image_result)
 
 if __name__ == "__main__":
     main()
