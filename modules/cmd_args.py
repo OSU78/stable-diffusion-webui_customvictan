@@ -5,7 +5,9 @@ from modules.paths_internal import models_path, script_path, data_path, extensio
 
 parser = argparse.ArgumentParser()
 
-#-----------------------------------------_#
+
+
+
 
 parser.add_argument("--prompt", type=str, default="realistic oil painting, portrait of a young man, looking away from viewer, full body, red hair, detailed face, hard brush, sexy clothings, in a dark forest, night, barely lit ((head shoot, neck , face:1.4))", help="Image prompt")
 parser.add_argument("--negative_prompt", type=str, default="bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, fused thigh, extra thigh, worst thigh, missing fingers, extra fingers, ugly fingers, long fingers, horn, realistic photo, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, Duplicate, two people, text, signature, watermark", help="Negative prompt to avoid certain features")
@@ -29,7 +31,19 @@ parser.add_argument("--hr_second_pass_steps", type=int, default=20, help="High r
 
 
 
-#-----------------------------------------------------#
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 parser.add_argument("-f", action='store_true', help=argparse.SUPPRESS)  # allows running as root; implemented outside of webui
 parser.add_argument("--update-all-extensions", action='store_true', help="launch.py argument: download updates for all extensions when starting the program")
