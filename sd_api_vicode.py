@@ -128,14 +128,23 @@ from modules.cmd_args import parser
 def main():
     args = parser.parse_args()
     args_dict = vars(args)
-    print(args_dict)
+    
 
     # Extraire uniquement les clés spécifiques
-    keys_to_extract = ["prompt", "negative_prompt", "styles", "seed", "subseed", 
-                       "subseed_strength", "sampler_name", "batch_size", "n_iter", 
-                       "steps", "cfg_scale", "width", "height", "denoising_strength", 
-                       "enable_hr", "hr_scale", "hr_upscaler", "hr_second_pass_steps"]
-    specific_args = {key: args_dict[key] for key in keys_to_extract}
+    keys_to_extract = ['prompt', 'negative_prompt', 'styles', 'seed', 'subseed', 
+                       'subseed_strength', 'seed_resize_from_h', 'seed_resize_from_w', 
+                       'sampler_name', 'batch_size', 'n_iter', 'steps', 'cfg_scale', 
+                       'width', 'height', 'restore_faces', 'tiling', 'do_not_save_samples', 
+                       'do_not_save_grid', 'eta', 'denoising_strength', 's_min_uncond', 
+                       's_churn', 's_tmax', 's_tmin', 's_noise', 'override_settings', 
+                       'override_settings_restore_afterwards', 'refiner_checkpoint', 
+                       'refiner_switch_at', 'disable_extra_networks', 'comments', 
+                       'enable_hr', 'firstphase_width', 'firstphase_height', 'hr_scale', 
+                       'hr_upscaler', 'hr_second_pass_steps', 'hr_resize_x', 'hr_resize_y', 
+                       'hr_checkpoint_name', 'hr_sampler_name', 'hr_prompt', 
+                       'hr_negative_prompt', 'sampler_index']
+    
+    specific_args = {key: args_dict.get(key, None) for key in keys_to_extract}
 
     # Création du dictionnaire avec les valeurs par défaut des paramètres
     gen_image_settings = {'prompt': 'realistic oil painting, portrait of a young man, looking away from viewer, full body, red hair, detailed face, hard brush, sexy clothings, in a dark forest, night, barely lit ((head shoot, neck , face:1.4))', 'negative_prompt': 'bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, fused thigh, extra thigh, worst thigh, missing fingers, extra fingers, ugly fingers, long fingers, horn, realistic photo, extra eyes, huge eyes, 2girl, amputation, disconnected limbs,Duplicate , two people,text ,signature,watermark', 'styles': None, 'seed': -1, 'subseed': -1, 'subseed_strength': 0, 'seed_resize_from_h': -1, 'seed_resize_from_w': -1, 'sampler_name': 'DPM++ 2M Karras', 'batch_size': 1, 'n_iter': 1, 'steps': 25, 'cfg_scale': 7.5, 'width': 512, 'height': 768, 'restore_faces': None, 'tiling': None, 'do_not_save_samples': True, 'do_not_save_grid': True, 'eta': None, 'denoising_strength': 0.2, 's_min_uncond': None, 's_churn': None, 's_tmax': None, 's_tmin': None, 's_noise': None, 'override_settings': {'sd_model_checkpoint': 'Dautless'}, 'override_settings_restore_afterwards': True, 'refiner_checkpoint': None, 'refiner_switch_at': None, 'disable_extra_networks': False, 'comments': None, 'enable_hr': True, 'firstphase_width': 0, 'firstphase_height': 0, 'hr_scale': 1.45, 'hr_upscaler': 'ESRGAN_4x', 'hr_second_pass_steps': 20, 'hr_resize_x': 0, 'hr_resize_y': 0, 'hr_checkpoint_name': 'Dautless', 'hr_sampler_name': 'DPM++ 2M Karras', 'hr_prompt': '', 'hr_negative_prompt': '', 'sampler_index': None}
