@@ -5,6 +5,32 @@ from modules.paths_internal import models_path, script_path, data_path, extensio
 
 parser = argparse.ArgumentParser()
 
+#-----------------------------------------_#
+
+parser.add_argument("--prompt", type=str, default="realistic oil painting, portrait of a young man, looking away from viewer, full body, red hair, detailed face, hard brush, sexy clothings, in a dark forest, night, barely lit ((head shoot, neck , face:1.4))", help="Image prompt")
+parser.add_argument("--negative_prompt", type=str, default="bad anatomy, bad hands, three hands, three legs, bad arms, missing legs, missing arms, poorly drawn face, bad face, fused face, cloned face, worst face, three crus, extra crus, fused crus, worst feet, three feet, fused feet, fused thigh, three thigh, fused thigh, extra thigh, worst thigh, missing fingers, extra fingers, ugly fingers, long fingers, horn, realistic photo, extra eyes, huge eyes, 2girl, amputation, disconnected limbs, Duplicate, two people, text, signature, watermark", help="Negative prompt to avoid certain features")
+parser.add_argument("--styles", type=str, default=None, help="Styles for the image")
+parser.add_argument("--seed", type=int, default=-1, help="Seed for random number generator")
+parser.add_argument("--subseed", type=int, default=-1, help="Subseed for random number generator")
+parser.add_argument("--subseed_strength", type=int, default=0, help="Subseed strength")
+parser.add_argument("--sampler_name", type=str, default='DPM++ 2M Karras', help="Sampler name")
+parser.add_argument("--batch_size", type=int, default=1, help="Batch size for processing")
+parser.add_argument("--n_iter", type=int, default=1, help="Number of iterations")
+parser.add_argument("--steps", type=int, default=25, help="Number of steps for image generation")
+parser.add_argument("--cfg_scale", type=float, default=7.5, help="CFG scale")
+parser.add_argument("--width", type=int, default=512, help="Width of the generated image")
+parser.add_argument("--height", type=int, default=768, help="Height of the generated image")
+parser.add_argument("--denoising_strength", type=float, default=0.2, help="Denoising strength")
+parser.add_argument("--enable_hr", type=bool, default=True, help="Enable high resolution")
+parser.add_argument("--hr_scale", type=float, default=1.45, help="High resolution scale")
+parser.add_argument("--hr_upscaler", type=str, default='ESRGAN_4x', help="High resolution upscaler")
+parser.add_argument("--hr_second_pass_steps", type=int, default=20, help="High resolution second pass steps")
+
+
+
+
+#-----------------------------------------------------#
+
 parser.add_argument("-f", action='store_true', help=argparse.SUPPRESS)  # allows running as root; implemented outside of webui
 parser.add_argument("--update-all-extensions", action='store_true', help="launch.py argument: download updates for all extensions when starting the program")
 parser.add_argument("--skip-python-version-check", action='store_true', help="launch.py argument: do not check python version")
