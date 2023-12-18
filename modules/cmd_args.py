@@ -23,7 +23,7 @@ parser.add_argument("--cfg_scale", type=float, default=7.5, help="CFG scale")
 parser.add_argument("--width", type=int, default=512, help="Width of the generated image")
 parser.add_argument("--height", type=int, default=768, help="Height of the generated image")
 parser.add_argument("--denoising_strength", type=float, default=0.2, help="Denoising strength")
-parser.add_argument("--enable_hr", type=bool, default=True, help="Enable high resolution")
+parser.add_argument("--enable_hr", action='store_true', help="Enable high resolution")
 parser.add_argument("--hr_scale", type=float, default=1.45, help="High resolution scale")
 parser.add_argument("--hr_upscaler", type=str, default='ESRGAN_4x', help="High resolution upscaler")
 parser.add_argument("--hr_second_pass_steps", type=int, default=20, help="High resolution second pass steps")
@@ -34,6 +34,34 @@ parser.add_argument("--hr_second_pass_steps", type=int, default=20, help="High r
 
 
 
+# Ajout des arguments manquants
+parser.add_argument("--seed_resize_from_h", type=int, default=-1, help="Resize seed from height")
+parser.add_argument("--seed_resize_from_w", type=int, default=-1, help="Resize seed from width")
+parser.add_argument("--restore_faces", type=bool, default=False, help="Restore faces option")
+parser.add_argument("--tiling", type=bool, default=False, help="Tiling option")
+parser.add_argument("--do_not_save_samples", action='store_true', help="Do not save samples")
+parser.add_argument("--do_not_save_grid", action='store_true', help="Do not save grid")
+parser.add_argument("--eta", type=float, default=None, help="Eta for algorithm")
+parser.add_argument("--s_min_uncond", type=float, default=None, help="Minimum unconditional scaling")
+parser.add_argument("--s_churn", type=float, default=None, help="Churn scaling")
+parser.add_argument("--s_tmax", type=float, default=None, help="Tmax scaling")
+parser.add_argument("--s_tmin", type=float, default=None, help="Tmin scaling")
+parser.add_argument("--s_noise", type=float, default=None, help="Noise scaling")
+parser.add_argument("--override_settings", type=json.loads, default={}, help="Override settings in JSON format")
+parser.add_argument("--override_settings_restore_afterwards", action='store_true', help="Restore override settings after use")
+parser.add_argument("--refiner_checkpoint", type=str, default=None, help="Refiner checkpoint path")
+parser.add_argument("--refiner_switch_at", type=int, default=None, help="Switch at refiner step")
+parser.add_argument("--disable_extra_networks", action='store_true', help="Disable extra networks")
+parser.add_argument("--comments", type=str, default=None, help="Additional comments")
+parser.add_argument("--firstphase_width", type=int, default=0, help="First phase width")
+parser.add_argument("--firstphase_height", type=int, default=0, help="First phase height")
+parser.add_argument("--hr_resize_x", type=int, default=0, help="High-resolution resize X")
+parser.add_argument("--hr_resize_y", type=int, default=0, help="High-resolution resize Y")
+parser.add_argument("--hr_checkpoint_name", type=str, default="Dautless", help="High-resolution checkpoint name")
+parser.add_argument("--hr_sampler_name", type=str, default="DPM++ 2M Karras", help="High-resolution sampler name")
+parser.add_argument("--hr_prompt", type=str, default="", help="High-resolution prompt")
+parser.add_argument("--hr_negative_prompt", type=str, default="", help="High-resolution negative prompt")
+parser.add_argument("--sampler_index", type=int, default=None, help="Sampler index")
 
 
 
