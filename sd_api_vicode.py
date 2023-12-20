@@ -130,7 +130,7 @@ def upload_video(videos,bucket_name):
 #crée une fonction upload_logo qui prend en paramètre une image en base64 la convertie en image et l'upload sur le bucket s3
 def upload_logo(logo,name="temp_logo",bucket_name=BUCKET_NAME,video_id=0):
     # Convertir l'image en base64 en image
-    logo = re.sub('^data:image/.+;base64,', '', logo)
+    #logo = re.sub('^data:image/.+;base64,', '', logo)
     image_data = BytesIO(base64.b64decode(logo))
 
     # Créer un chemin temporaire pour le fichier
