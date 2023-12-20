@@ -206,7 +206,7 @@ def gen_img2(txt2imgreq):
     print(processed.images)
     print("------------")
     b64images = list(map(encode_pil_to_base64, processed.images)) if send_images else []
-    upload_logo(b64images)
+    upload_logo(b64images[0])
     return b64images
 
 
