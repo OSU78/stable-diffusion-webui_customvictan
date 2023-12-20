@@ -1,11 +1,7 @@
 from __future__ import annotations
-import firebase_admin
-from firebase_admin import credentials, firestore
 import os
 import json
 from datetime import datetime, timedelta
-import firebase_admin
-from firebase_admin import credentials, firestore
 import os
 import json
 from datetime import datetime
