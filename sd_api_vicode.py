@@ -1,3 +1,4 @@
+from __future__ import annotations
 import firebase_admin
 from firebase_admin import credentials, firestore
 import os
@@ -26,7 +27,6 @@ SECRET_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 REGION_NAME= 'eu-north-1'
 BUCKET_NAME = 'gptstoresbucket'
 
-from __future__ import annotations
 
 import os
 import base64
