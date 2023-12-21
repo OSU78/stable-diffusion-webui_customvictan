@@ -2,18 +2,13 @@ from __future__ import annotations
 import os
 import json
 from datetime import datetime, timedelta
-import os
-import json
-from datetime import datetime
 import pytz
 import random
 # from magicGPTS import GPTDetailsScraper
-from datetime import datetime
 import pytz
 import boto3
 import datetime
 from botocore.exceptions import NoCredentialsError
-import os
 from io import BytesIO
 import re
 import base64
@@ -24,8 +19,6 @@ REGION_NAME= 'eu-north-1'
 BUCKET_NAME = 'gptstoresbucket'
 
 
-import os
-import base64
 import io
 import time
 import modules.shared as shared
