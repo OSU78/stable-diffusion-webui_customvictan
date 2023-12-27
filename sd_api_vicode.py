@@ -37,13 +37,13 @@ initialize.check_versions()
 
 
 
-from fastapi import FastAPI
+#from fastapi import FastAPI
 from modules.shared_cmd_options import cmd_opts
 
 initialize.initialize()
 
-app = FastAPI()
-initialize_util.setup_middleware(app)
+#app = FastAPI()
+#initialize_util.setup_middleware(app)
 
 
 
