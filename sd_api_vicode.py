@@ -196,10 +196,11 @@ def gen_img2(txt2imgreq):
             print("OK nice")
 
     # Conversion des images en base64 si nécessaire
-    print(processed.images)
+    #print(processed.images)
     print("------------")
     b64images = list(map(encode_pil_to_base64, processed.images)) if send_images else []
     #upload_logo(b64images[0])
+    print("b64:",b64images)
     return b64images
 
 
@@ -227,7 +228,7 @@ def gen_image(prompt: str ="ealistic oil painting, portrait of a young man, look
     print(models.StableDiffusionTxt2ImgProcessingAPI)
   
 
-    print("DATA")
+    #print("DATA")
     print(" ")
     #print(data)
     print(" ----------------------------")
